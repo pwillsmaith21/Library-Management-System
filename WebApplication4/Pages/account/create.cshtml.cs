@@ -37,7 +37,7 @@ namespace WebApplication4.Pages.account
             _context.UserTs.Add(UserT);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./catalog/catalog");
         }
     }
 }
