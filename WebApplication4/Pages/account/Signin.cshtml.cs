@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -22,36 +23,10 @@ namespace WebApplication4.Pages.account
         [BindProperty]
         public UserT UserT { get; set; }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-       /* public async Task<IActionResult> OnPostAsync()
+        /*public void OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Attach(UserT).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserTExists(UserT.UserId))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
+            Console.WriteLine("Working");
         }*/
-
         public async Task<IActionResult> OnPostAsync()
         {
             Console.WriteLine(UserT.UserEmail);
@@ -63,12 +38,14 @@ namespace WebApplication4.Pages.account
             if (user == null)
             {
                 return NotFound();
+                Console.WriteLine("null user");
 
             }
+            user.UserPassword = UserT.UserPassword.Trim();
             if (UserT.UserPassword == user.UserPassword)
             {
                 Console.WriteLine("Successful login");
-                return RedirectToPage("./Index");
+                return RedirectToPage("/catalog/index");
             }
             return Page();
 

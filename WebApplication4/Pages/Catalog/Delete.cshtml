@@ -1,40 +1,70 @@
 ﻿@page
-@model WebApplication4.Pages.Catalog.DeleteModel
-
-@{
-    ViewData["Title"] = "Delete";
-}
-
-<h1>Delete</h1>
+@model WebApplication4.Pages.Catalog.NewFolder.DeleteModel
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>ItemstockT</h4>
+    <h4>Item</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ItemstockT.Quantity)
+            @Html.DisplayNameFor(model => model.ItemT.Title)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ItemstockT.Quantity)
+            @Html.DisplayFor(model => model.ItemT.Title)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ItemstockT.Description)
+            @Html.DisplayNameFor(model => model.ItemT.DatePublished)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ItemstockT.Description)
+            @Html.DisplayFor(model => model.ItemT.DatePublished)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ItemstockT.ItemNumberNavigation)
+            @Html.DisplayNameFor(model => model.ItemT.PurchasePrice)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ItemstockT.ItemNumberNavigation.ItemId)
+            @Html.DisplayFor(model => model.ItemT.PurchasePrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemT.RentalPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemT.RentalPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemT.ItemType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemT.ItemType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemT.Genre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemT.Genre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemT.Duration)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemT.Duration)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemT.AuthorNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemT.AuthorNavigation.AuthorId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemT.PublisherNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemT.PublisherNavigation.PublisherId)
         </dd>
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="ItemstockT.ItemNumber" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="hidden" asp-for="ItemT.ItemId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a asp-page="./Index">Back to Catalog</a>
     </form>
 </div>

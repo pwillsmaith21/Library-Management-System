@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApplication4.Models;
 
-namespace WebApplication4.Pages.Catalog
+namespace WebApplication4.Pages.Catalog.NewFolder
 {
     public class CreateModel : PageModel
     {
@@ -20,12 +20,13 @@ namespace WebApplication4.Pages.Catalog
 
         public IActionResult OnGet()
         {
-        ViewData["ItemNumber"] = new SelectList(_context.ItemTs, "ItemId", "ItemId");
+        ViewData["Author"] = new SelectList(_context.AuthorTs, "AuthorId", "AuthorId");
+        ViewData["Publisher"] = new SelectList(_context.PublisherTs, "PublisherId", "PublisherId");
             return Page();
         }
 
         [BindProperty]
-        public ItemstockT ItemstockT { get; set; }
+        public ItemT ItemT { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +36,7 @@ namespace WebApplication4.Pages.Catalog
                 return Page();
             }
 
-            _context.ItemstockTs.Add(ItemstockT);
+            _context.ItemTs.Add(ItemT);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

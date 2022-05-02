@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication4.Models;
 
-namespace WebApplication4.Pages.Catalog
+namespace WebApplication4.Pages.Catalog.NewFolder
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace WebApplication4.Pages.Catalog
         }
 
         [BindProperty]
-        public ItemstockT ItemstockT { get; set; }
+        public ItemT ItemT { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,14 +29,16 @@ namespace WebApplication4.Pages.Catalog
                 return NotFound();
             }
 
-            ItemstockT = await _context.ItemstockTs
-                .Include(i => i.ItemNumberNavigation).FirstOrDefaultAsync(m => m.ItemNumber == id);
+            ItemT = await _context.ItemTs
+                .Include(i => i.AuthorNavigation)
+                .Include(i => i.PublisherNavigation).FirstOrDefaultAsync(m => m.ItemId == id);
 
-            if (ItemstockT == null)
+            if (ItemT == null)
             {
                 return NotFound();
             }
-           ViewData["ItemNumber"] = new SelectList(_context.ItemTs, "ItemId", "ItemId");
+           ViewData["Author"] = new SelectList(_context.AuthorTs, "AuthorId", "AuthorId");
+           ViewData["Publisher"] = new SelectList(_context.PublisherTs, "PublisherId", "PublisherId");
             return Page();
         }
 
@@ -49,7 +51,7 @@ namespace WebApplication4.Pages.Catalog
                 return Page();
             }
 
-            _context.Attach(ItemstockT).State = EntityState.Modified;
+            _context.Attach(ItemT).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +59,7 @@ namespace WebApplication4.Pages.Catalog
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ItemstockTExists(ItemstockT.ItemNumber))
+                if (!ItemTExists(ItemT.ItemId))
                 {
                     return NotFound();
                 }
@@ -70,9 +72,9 @@ namespace WebApplication4.Pages.Catalog
             return RedirectToPage("./Index");
         }
 
-        private bool ItemstockTExists(int id)
+        private bool ItemTExists(int id)
         {
-            return _context.ItemstockTs.Any(e => e.ItemNumber == id);
+            return _context.ItemTs.Any(e => e.ItemId == id);
         }
     }
 }

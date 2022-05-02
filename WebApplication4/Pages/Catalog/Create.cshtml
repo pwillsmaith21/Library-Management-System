@@ -1,43 +1,72 @@
 ﻿@page
-@model WebApplication4.Pages.Catalog.CreateModel
+@model WebApplication4.Pages.Catalog.NewFolder.CreateModel
 
-@{
-    ViewData["Title"] = "Create";
-}
-
-<h1>Create</h1>
-
-<h4>ItemstockT</h4>
+<h4>Add Item</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ItemstockT.ItemNumber" class="control-label"></label>
-                <select asp-for="ItemstockT.ItemNumber" class ="form-control" asp-items="ViewBag.ItemNumber"></select>
+                <label asp-for="ItemT.ItemId" class="control-label"></label>
+                <input asp-for="ItemT.ItemId" class="form-control" />
+                <span asp-validation-for="ItemT.ItemId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ItemstockT.Quantity" class="control-label"></label>
-                <input asp-for="ItemstockT.Quantity" class="form-control" />
-                <span asp-validation-for="ItemstockT.Quantity" class="text-danger"></span>
+                <label asp-for="ItemT.Title" class="control-label"></label>
+                <input asp-for="ItemT.Title" class="form-control" />
+                <span asp-validation-for="ItemT.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ItemstockT.Description" class="control-label"></label>
-                <input asp-for="ItemstockT.Description" class="form-control" />
-                <span asp-validation-for="ItemstockT.Description" class="text-danger"></span>
+                <label asp-for="ItemT.Author" class="control-label"></label>
+                <select asp-for="ItemT.Author" class ="form-control" asp-items="ViewBag.Author"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="ItemT.Publisher" class="control-label"></label>
+                <select asp-for="ItemT.Publisher" class ="form-control" asp-items="ViewBag.Publisher"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.DatePublished" class="control-label"></label>
+                <input asp-for="ItemT.DatePublished" class="form-control" />
+                <span asp-validation-for="ItemT.DatePublished" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.PurchasePrice" class="control-label"></label>
+                <input asp-for="ItemT.PurchasePrice" class="form-control" />
+                <span asp-validation-for="ItemT.PurchasePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.RentalPrice" class="control-label"></label>
+                <input asp-for="ItemT.RentalPrice" class="form-control" />
+                <span asp-validation-for="ItemT.RentalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.ItemType" class="control-label"></label>
+                <input asp-for="ItemT.ItemType" class="form-control" />
+                <span asp-validation-for="ItemT.ItemType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.Genre" class="control-label"></label>
+                <input asp-for="ItemT.Genre" class="form-control" />
+                <span asp-validation-for="ItemT.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.Duration" class="control-label"></label>
+                <input asp-for="ItemT.Duration" class="form-control" />
+                <span asp-validation-for="ItemT.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Item" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">Return to Catalog</a>
 </div>
-
+<br />
+<br />
+<br />
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

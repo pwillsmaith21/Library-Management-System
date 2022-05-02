@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using WebApplication4.Models;
 
-namespace WebApplication4.Pages.Catalog
+namespace WebApplication4.Pages.Catalog.NewFolder
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace WebApplication4.Pages.Catalog
         }
 
         [BindProperty]
-        public ItemstockT ItemstockT { get; set; }
+        public ItemT ItemT { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,10 +28,11 @@ namespace WebApplication4.Pages.Catalog
                 return NotFound();
             }
 
-            ItemstockT = await _context.ItemstockTs
-                .Include(i => i.ItemNumberNavigation).FirstOrDefaultAsync(m => m.ItemNumber == id);
+            ItemT = await _context.ItemTs
+                .Include(i => i.AuthorNavigation)
+                .Include(i => i.PublisherNavigation).FirstOrDefaultAsync(m => m.ItemId == id);
 
-            if (ItemstockT == null)
+            if (ItemT == null)
             {
                 return NotFound();
             }
@@ -45,11 +46,11 @@ namespace WebApplication4.Pages.Catalog
                 return NotFound();
             }
 
-            ItemstockT = await _context.ItemstockTs.FindAsync(id);
+            ItemT = await _context.ItemTs.FindAsync(id);
 
-            if (ItemstockT != null)
+            if (ItemT != null)
             {
-                _context.ItemstockTs.Remove(ItemstockT);
+                _context.ItemTs.Remove(ItemT);
                 await _context.SaveChangesAsync();
             }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,21 +9,22 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Pages.Catalog
 {
-    public class IndexModel : PageModel
+    public class catalogModel : PageModel
     {
         private readonly WebApplication4.Models.LMS_ProjectContext _context;
 
-        public IndexModel(WebApplication4.Models.LMS_ProjectContext context)
+        public catalogModel(WebApplication4.Models.LMS_ProjectContext context)
         {
             _context = context;
         }
 
-        public IList<ItemstockT> ItemstockT { get;set; }
+        public IList<ItemT> ItemT { get; set; }
 
         public async Task OnGetAsync()
         {
-            ItemstockT = await _context.ItemstockTs
-                .Include(i => i.ItemNumberNavigation).ToListAsync();
+            ItemT = await _context.ItemTs
+                .Include(i => i.AuthorNavigation)
+                .Include(i => i.PublisherNavigation).ToListAsync();
         }
     }
 }
