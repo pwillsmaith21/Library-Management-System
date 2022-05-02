@@ -4,77 +4,42 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h1>Edit</h1>
-
-<h4>UserT</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="UserT.UserId" />
-            <div class="form-group">
-                <label asp-for="UserT.UserFirstName" class="control-label"></label>
-                <input asp-for="UserT.UserFirstName" class="form-control" />
-                <span asp-validation-for="UserT.UserFirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserT.UserLastName" class="control-label"></label>
-                <input asp-for="UserT.UserLastName" class="form-control" />
-                <span asp-validation-for="UserT.UserLastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserT.UserAddress" class="control-label"></label>
-                <input asp-for="UserT.UserAddress" class="form-control" />
-                <span asp-validation-for="UserT.UserAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserT.UserCity" class="control-label"></label>
-                <input asp-for="UserT.UserCity" class="form-control" />
-                <span asp-validation-for="UserT.UserCity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserT.UserState" class="control-label"></label>
-                <input asp-for="UserT.UserState" class="form-control" />
-                <span asp-validation-for="UserT.UserState" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserT.UserZipCode" class="control-label"></label>
-                <input asp-for="UserT.UserZipCode" class="form-control" />
-                <span asp-validation-for="UserT.UserZipCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserT.UserPhone" class="control-label"></label>
-                <input asp-for="UserT.UserPhone" class="form-control" />
-                <span asp-validation-for="UserT.UserPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserT.UserDob" class="control-label"></label>
-                <input asp-for="UserT.UserDob" class="form-control" />
-                <span asp-validation-for="UserT.UserDob" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserT.UserEmail" class="control-label"></label>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/registration.css">
+</head>
+<div class="signin container">
+        <form class="mainform">
+            <form method="post">
+            <div class="mb-3">
+              <h1>Sign In</h1>
+              <p>Please enter your username and password</p>
+              <label for="username"><b>Email</b></label>
                 <input asp-for="UserT.UserEmail" class="form-control" />
-                <span asp-validation-for="UserT.UserEmail" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="UserT.UserPassword" class="control-label"></label>
+            <div class="mb-3">
+              <label for="password"><b>Password</b></label>
                 <input asp-for="UserT.UserPassword" class="form-control" />
-                <span asp-validation-for="UserT.UserPassword" class="text-danger"></span>
             </div>
+            <p>Need an account? <a href="/account/Signup">Sign up</a></p> 
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Sign in" class="btn btn-primary" />
             </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
+           </form>
+          </form>
+          </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

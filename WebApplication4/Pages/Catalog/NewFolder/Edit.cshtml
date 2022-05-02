@@ -1,0 +1,68 @@
+﻿@page
+@model WebApplication4.Pages.Catalog.NewFolder.EditModel
+
+<h4>ItemT</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ItemT.ItemId" />
+            <div class="form-group">
+                <label asp-for="ItemT.Title" class="control-label"></label>
+                <input asp-for="ItemT.Title" class="form-control" />
+                <span asp-validation-for="ItemT.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.Author" class="control-label"></label>
+                <select asp-for="ItemT.Author" class="form-control" asp-items="ViewBag.Author"></select>
+                <span asp-validation-for="ItemT.Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.Publisher" class="control-label"></label>
+                <select asp-for="ItemT.Publisher" class="form-control" asp-items="ViewBag.Publisher"></select>
+                <span asp-validation-for="ItemT.Publisher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.DatePublished" class="control-label"></label>
+                <input asp-for="ItemT.DatePublished" class="form-control" />
+                <span asp-validation-for="ItemT.DatePublished" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.PurchasePrice" class="control-label"></label>
+                <input asp-for="ItemT.PurchasePrice" class="form-control" />
+                <span asp-validation-for="ItemT.PurchasePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.RentalPrice" class="control-label"></label>
+                <input asp-for="ItemT.RentalPrice" class="form-control" />
+                <span asp-validation-for="ItemT.RentalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.ItemType" class="control-label"></label>
+                <input asp-for="ItemT.ItemType" class="form-control" />
+                <span asp-validation-for="ItemT.ItemType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.Genre" class="control-label"></label>
+                <input asp-for="ItemT.Genre" class="form-control" />
+                <span asp-validation-for="ItemT.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemT.Duration" class="control-label"></label>
+                <input asp-for="ItemT.Duration" class="form-control" />
+                <span asp-validation-for="ItemT.Duration" class="text-danger"></span>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

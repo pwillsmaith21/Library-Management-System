@@ -186,8 +186,6 @@ namespace WebApplication4.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Password).HasColumnName("password");
-
                 entity.Property(e => e.PurchasePrice).HasColumnType("decimal(10, 2)");
 
                 entity.Property(e => e.RentalPrice).HasColumnType("decimal(10, 2)");
@@ -196,7 +194,6 @@ namespace WebApplication4.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Zipcode).HasColumnName("zipcode");
 
                 entity.HasOne(d => d.AuthorNavigation)
                     .WithMany(p => p.ItemTs)
@@ -393,7 +390,7 @@ namespace WebApplication4.Models
                 entity.ToTable("USER_T");
 
                 entity.Property(e => e.UserId)
-                    .ValueGeneratedNever()
+                    .ValueGeneratedOnAdd()
                     .HasColumnName("UserID");
 
                 entity.Property(e => e.UserAddress)

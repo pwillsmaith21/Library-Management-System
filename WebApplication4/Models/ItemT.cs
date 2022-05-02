@@ -21,8 +21,6 @@ namespace WebApplication4.Models
         public string ItemType { get; set; }
         public string Genre { get; set; }
         public string Duration { get; set; }
-        public int? Password { get; set; }
-        public int? Zipcode { get; set; }
 
         public virtual AuthorT AuthorNavigation { get; set; }
         public virtual PublisherT PublisherNavigation { get; set; }
