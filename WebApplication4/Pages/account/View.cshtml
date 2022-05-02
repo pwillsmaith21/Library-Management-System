@@ -1,0 +1,90 @@
+﻿@page
+@model WebApplication4.Pages.account.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserDob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserT[0].UserPassword)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.UserT) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserDob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserPassword)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
