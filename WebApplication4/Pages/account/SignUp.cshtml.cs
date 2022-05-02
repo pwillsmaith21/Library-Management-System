@@ -9,11 +9,11 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Pages.account
 {
-    public class CreateModel : PageModel
+    public class createModel : PageModel
     {
         private readonly WebApplication4.Models.LMS_ProjectContext _context;
 
-        public CreateModel(WebApplication4.Models.LMS_ProjectContext context)
+        public createModel(WebApplication4.Models.LMS_ProjectContext context)
         {
             _context = context;
         }
@@ -37,7 +37,7 @@ namespace WebApplication4.Pages.account
             _context.UserTs.Add(UserT);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./catalog");
+            return RedirectToPage("./catalog/catalog");
         }
     }
 }

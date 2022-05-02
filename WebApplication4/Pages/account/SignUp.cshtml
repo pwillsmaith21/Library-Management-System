@@ -1,44 +1,76 @@
 ﻿@page
-@model WebApplication4.Pages.account.CreateModel
+@model WebApplication4.Pages.account.createModel
 
-@{
-    ViewData["Title"] = "Create";
-}
-<div>
-        <form>
+<    <div>
             <div class="container">
               <h1>Sign Up</h1>
-
-              <label for="name"><b>First & Last Name</b></label>
-              <div style="display:inline-flex;">
+              <p>Please fill in this form to create an account.</p>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserT.UserFirstName">First Name</label>
                 <input asp-for="UserT.UserFirstName" class="form-control" />
-              <br>
+                <span asp-validation-for="UserT.UserFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserT.UserLastName">Last Name</label>
                 <input asp-for="UserT.UserLastName" class="form-control" />
-              </div>
-
-              <label for="email"><b>Email</b></label>
+                <span asp-validation-for="UserT.UserLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserT.UserAddress" class="control-label"></label>
+                <input asp-for="UserT.UserAddress" class="form-control" />
+                <span asp-validation-for="UserT.UserAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserT.UserCity" class="control-label"></label>
+                <input asp-for="UserT.UserCity" class="form-control" />
+                <span asp-validation-for="UserT.UserCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserT.UserState" class="control-label"></label>
+                <input asp-for="UserT.UserState" class="form-control" />
+                <span asp-validation-for="UserT.UserState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserT.UserZipCode" class="control-label"></label>
+                <input asp-for="UserT.UserZipCode" class="form-control" />
+                <span asp-validation-for="UserT.UserZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserT.UserPhone" class="control-label"></label>
+                <input asp-for="UserT.UserPhone" class="form-control" />
+                <span asp-validation-for="UserT.UserPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserT.UserDob" class="control-label"></label>
+                <input asp-for="UserT.UserDob" class="form-control" />
+                <span asp-validation-for="UserT.UserDob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserT.UserEmail" class="control-label"></label>
                 <input asp-for="UserT.UserEmail" class="form-control" />
-              
-              <label for="email"><b>Phone</b></label>
-              <input asp-for="UserT.UserPhone" class="form-control" />           
-              <label for="psw"><b>Password</b></label>
+                <span asp-validation-for="UserT.UserEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserT.UserPassword" class="control-label"></label>
                 <input asp-for="UserT.UserPassword" class="form-control" />
-              <ul class='pw-requirements'>
-                <li>One lowercase character</li>
-                <li>One uppercase character</li>
-                <li>One number</li>
-                <li>One special character</li>
-                <li>9 characters minimum</li>
-              </ul>
-              <div>
-                <p>Already have an account? <a asp-page="account/Signin">Sign in</a></p> 
+                <span asp-validation-for="UserT.UserPassword" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Sign Up" class="btn btn-primary" />
-            </div> 
             </div>
-            </div>
-          </form>
-          </div>
+             <div>
+                <p>Already have an account? <a asp-page="/account/Signin">Sign in</a></p> 
+            <div class="form-group">
+                <br />
+                <br />
+
+        </form>
+    </div>
+</div>
+
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

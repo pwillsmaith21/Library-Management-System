@@ -1,7 +1,6 @@
 ﻿@page
-@model WebApplication4.Pages.Index1Model
-@{
-}
+@model WebApplication4.Pages.Catalog.catalogModel
+
 <body>
     <div class="filters">
         <a class="subject selecte" data-filter="*">Show all</a>
@@ -13,43 +12,78 @@
         <a class="subject" data-filter=".science">Science</a>
         <a class="subject" data-filter=".religion">Religion</a>
     </div>
-    <div class="grid">
-        <div class="book-subject romance">
-          <a href="" target="new">
-            <img class ="img-responsive book-image grow" src="https://books.google.com/books/publisher/content?id=Dc2LDQAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U1YPd1-nJbCQnjaxFpPndtD_8Tflg&w=1280" alt="Responsive image">
-          </a> 
-        </div>
-        <div class="book-subject history">
-          <a href="" target="new">
-            <img class ="img-responsive book-image grow" src="https://books.google.com/books/content?id=a-Wb45gW3P4C&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U1j16F5HQ494YSrQ-SGU__3ePQ4Mg&w=1025" alt="Responsive image">
-          </a> 
-        </div>
-          <div class="book-subject math">
-          <a href="" target="new">
-            <img class ="img-responsive book-image grow" src="https://books.google.com/books/content?id=UlrmKjIjrzQC&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U1FiDohUXZuTdT5DxOin2SJIMxwSA&w=1280" alt="Responsive image">
-          </a> 
-        </div>
-        <div class="book-subject polisci">
-          <a href="" target="new">
-            <img class ="img-responsive book-image grow" src="https://books.google.com/books/publisher/content?id=pJ9PDwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U2_c4cSF_tZnD2AsG4PvQMLmCZayA&w=1280" alt="Responsive image">
-          </a> 
-        </div>
-        <div class="book-subject psych">
-          <a href="" target="new">
-            <img class ="img-responsive book-image grow" src="https://books.google.com/books/publisher/content?id=CuwmEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U32wWlnI6FI_4a5ztq2YlP9l0wupg&w=1280" alt="Responsive image">
-          </a> 
-        </div>
-        <div class="book-subject science">
-          <a href="" target="new">
-            <img class ="img-responsive book-image grow" src="https://books.google.com/books/content?id=8AyEtZkYH3YC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE71cmvBtJF634zzsFqeXw0_rNgdazVJhUu5oqrKi8e98AU2bkvaOFmRnMrH5mqW32MOjkhOxPfNcAvGaKpv-xSWqjQTdcX6Q1ZlU9s-HNsXv6caMHNY" alt="Responsive image">
-          </a> 
-        </div>
-         <div class="book-subject religion">
-          <a href="" target="new">
-            <img class ="img-responsive book-image grow" src="https://books.google.com/books/publisher/content?id=6eiWDwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U2y1FTZkCL8Ovnj0IOO6d4W5y8ZXw&w=1280" alt="Responsive image">
-          </a> 
-        </div>
-        </div>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemT[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemT[0].DatePublished)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemT[0].PurchasePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemT[0].RentalPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemT[0].ItemType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemT[0].Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemT[0].Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemT[0].AuthorNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemT[0].PublisherNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ItemT) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatePublished)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchasePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorNavigation.AuthorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherNavigation.PublisherId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ItemId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ItemId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ItemId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
     <script src="~/css/isotope.pkgd.js"></script>
     <script src="~/css/catalog.js"></script>
     <script src="~/js/home.js"></script>
