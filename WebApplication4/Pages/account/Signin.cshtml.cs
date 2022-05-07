@@ -11,10 +11,9 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Pages.account
 {
-    public class EditModel : PageModel
+    public class Signin : PageModel
     {
         private readonly WebApplication4.Models.LMS_ProjectContext _context;
-
         public EditModel(WebApplication4.Models.LMS_ProjectContext context)
         {
             _context = context;
@@ -29,7 +28,6 @@ namespace WebApplication4.Pages.account
         }*/
         public async Task<IActionResult> OnPostAsync()
         {
-            Console.WriteLine(UserT.UserEmail);
             if (UserT.UserEmail == null)
             {
                 return NotFound();
@@ -44,7 +42,7 @@ namespace WebApplication4.Pages.account
             user.UserPassword = UserT.UserPassword.Trim();
             if (UserT.UserPassword == user.UserPassword)
             {
-                Console.WriteLine("Successful login");
+                UserStored.UserStoredID = user.UserId;
                 return RedirectToPage("/catalog/index");
             }
             return Page();

@@ -9,7 +9,7 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Pages.account
 {
-    public class createModel : PageModel
+    public class Signup : PageModel
     {
         private readonly WebApplication4.Models.LMS_ProjectContext _context;
 

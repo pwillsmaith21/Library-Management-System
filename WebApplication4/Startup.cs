@@ -25,6 +25,7 @@ namespace WebApplication4
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddScoped<UserStored>();
             services.AddRazorPages()
             .AddViewOptions(options =>
             {

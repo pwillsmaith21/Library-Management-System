@@ -1,7 +1,6 @@
 ﻿@page
 @model WebApplication4.Pages.account.Info
-@{
-}
+
 <body>
       <nav id="primary_nav">
                 <ul>
@@ -17,19 +16,67 @@
                     <hr>
                 </ul>
             </nav>
-            <div class="account">
-                <h4>Profile Information</h4>
-                <ul>
-                    <li>First name <input type="text" name="" id="name" value="Alejandro"> Last name <input type="text" name="" id="name" value="Santos"></li>
-                    <li>Email <input id="update-info" type="text" value="santosale@my.easternct.edu"></li>
-                    <li>Phone <input id="update-info" type="text" value="860-917-2293"></li>
-                    <li>Address <input id="update-info" type="text" value="Address"></li>
-                    <li>Password <input id="update-info" type="text" value="*********"></li>
-
-                    
-                </ul>
-                <button>Update</button>
-            </div>
+<dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserFirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserFirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserLastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserLastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserCity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserCity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserState)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserState)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserZipCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserZipCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserPhone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserPhone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserDob)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserDob)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserT.UserPassword)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserT.UserPassword)
+        </dd>
       <script src="~/js/account.js"></script>
       <script src="~/js/home.js"></script>
         <!-- MDB -->
